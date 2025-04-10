@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testimonial Slider</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    .prev-btn,
+    .next-btn {
+      position: absolute;
+      font-size: 30px;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .prev-btn:hover,
+    .next-btn:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .prev-btn {
+      left: 0px;
+      transform: translateY(80%) rotate(180deg);
+    }
+
+    .next-btn {
+      right: 1px;
+      transform: translateY(80%);
+    }
+
+    .testimonial-slider {
+      position: relative;
+      width: 90%;
+    }
+
+    span {
+      font-size: 25px;
+      font-family: "Open Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+      font-variation-settings: "wdth" 100;
+    }
+
+    .testimonial-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      z-index: 0;
+    }
+
+    .testimonial-container.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .testimonial-container img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-right: 20px;
+      object-fit: cover;
+    }
+
+    .testimonial-container .testimonial-text {
+      font-size: 16px;
+    }
+
+    .testimonial-container .testimonial-author {
+      font-weight: bold;
+      font-family: "Open Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 600;
+      font-style: normal;
+      font-variation-settings: "wdth" 100;
+    }
+
+    .testimonial-content {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .testimonial-text {
+      line-height: 2.0;
+      font-family: "Open Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+      font-variation-settings: "wdth" 100;
+    }
+
+    .testimonial-content img {
+      align-self: center;
+    }
+
+    .fa-brands {
+      font-size: 30px;
+    }
+
+    @media only screen and (max-width:789px) {
+      .testimonial-content {
+        display: flex;
+        flex-direction: column;
+      }
+      .testimonial-slider {
+        width: 70%
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="testimonial-slider" data-current-index="0">
+    <div class="testimonial-container active" data-index="0">
+      <div class="testimonial-content">
+        <img src="images/paco_underhill.jpg" alt="Paco Underhill, Founder of Envirosell Inc., Global best-selling author, and Futurist">
+        <div class="row">
+          <span>Paco Underhill, Founder of Envirosell Inc., Global best-selling author, and Futurist</span>
+          <p class="testimonial-text">"One of the best decision Walmart made as it expanded internationally was to harvest the best and brightest and bring them back to Bentonville.  Ramon was one their best finds.  An Oxford University education, a clear global awareness and gift for management, I was struck as I met him some 20 years ago of the elegance and grace at which both he projected and used in his leadership role.   The combination of a big fast brain, a caring heart and ability to listen is a unique combination in modern management.  Over the past twenty years he has built a remarkable record of both strategic thinking and hands on accomplishment.  "</p>
+          <div class="linkedin-link">
+            <a href="https://www.linkedin.com/in/pacounderhill/" target="_blank" onclick="event.stopPropagation()"><i class="fa-brands fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="testimonial-container" data-index="1">
+      <div class="testimonial-content">
+        <img src="images/allan_steinmetz.jpg" alt="Allan Steinmetz, CEO, Founder, Inward Strategic Consulting">
+        <div class="row">
+          <span>Allan Steinmetz, CEO, Founder, Inward Strategic Consulting</span>
+          <p class="testimonial-text">"Ramon is a visionary with a knack for uncovering trends and shaping strategy. His ability to distill complex data into clear recommendations is unparalleled. He brings a passionate customer focus to every discussion, driving customer-led decisions. As a servant leader, he inspires teams to align with company's purpose and deliver impactful results through creative execution and ideas.  Ramon excels in implementing metrics like NPS to enhance both customer and employee experience and impactful insights. His retail expertise, coupled with technological prowess, accelerates customer-focused strategies locally and globally."</p>
+          <a href="https://www.linkedin.com/in/allan1steinmetz/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-container" data-index="2">
+      <div class="testimonial-content">
+        <img src="images/laureano_turienzo.jpg" alt="Laureano Turienzo, CEO Retail News Trends y Presidente del Círculo Iberoamericano de Retail">
+        <div class="row">
+          <span>Laureano Turienzo, CEO Retail News Trends y Presidente del Círculo Iberoamericano de Retail</span>
+          <p class="testimonial-text">"Ramón es uno de los profesionales más brillantes que he conocido. Un verdadero líder y profesional destacado en el Sector Retail a Nivel Mundial. No solo posee un conocimiento profundo y una experiencia vasta en todas las facetas del sector, sino que también se destaca por su visión de futuro excepcional. Su capacidad para anticipar las tendencias y adaptarse a las dinámicas cambiantes del mercado lo coloca en una posición única como estratega empresarial. Ramón va más allá de los aspectos comerciales; comprende que el sector retail es intrínsecamente humano. Su enfoque humanista centrado en las personas refleja su comprensión de que, en última instancia, se trata de crear momentos significativos para clientes y empleados. Esta perspectiva hace que su liderazgo sea no solo efectivo sino también inspirador."</p>
+          <a href="https://www.linkedin.com/in/laurenturienzo/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-container" data-index="3">
+      <div class="testimonial-content">
+        <img src="images/carla_giovannetti.jpg" alt="Carla Giovannetti Dodds, Global Growth and Brand Strategist">
+        <div class="row">
+          <span>Carla Giovannetti Dodds, Global Growth and Brand Strategist</span>
+          <p class="testimonial-text">"I can best describe Ramon as an insight retail leader with unique expertise who translates insights to strategy, accelerating customer-focus strategies for higher engagement and revenue growth. I partnered with Ramon during two of my assignments at Walmart US. During my last tenure in Marketing, he provided our team with critical insights to drive our Financial Services business. Previously, as Head of Multicultural for Walmart, he became a key advisor in differentiating insights from the Hispanic customer that fed our multicultural strategy. His work included partnerships with key category brands (P&G, Coca-Cola, Frito Lay, L'Oreal, etc.) that yielded significant growth with the US Hispanic Retail segment."</p>
+          <a href="https://www.linkedin.com/in/carladodds/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-container" data-index="4">
+      <div class="testimonial-content">
+        <img src="images/dario_brasca.jpg" alt="Darío Brasca, Presidente CYRE, S.A., Argentina">
+        <div class="row">
+          <span>Darío Brasca, Presidente CYRE, S.A., Argentina</span>
+          <p class="testimonial-text">"Ramón personifica la Experiencia Humana, fusionando valores y propósito para impulsar organizaciones hacia un crecimiento diferenciado. Su visión innovadora y habilidad para inspirar a través de historias cautivan, mientras su liderazgo apasionado nutre equipos centrados en el propósito, elevando cada experiencia del cliente y empleado con una creatividad sin igual. Además, como líder en estrategias de retail, Ramón anticipa tendencias, influyendo en decisiones comerciales y trascendiendo fronteras, especialmente en América Latina y Europa, consolidándolo como un referente en el mundo del retail."</p>
+          <a href="https://www.linkedin.com/in/dar%C3%ADo-sebasti%C3%A1n-brasca-0bab78174/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-container" data-index="5">
+      <div class="testimonial-content">
+        <img src="images/mauricio_sabogal.jpg" alt="Mauricio Sabogal, CEO, Founder, SAB Marketing Connections">
+        <div class="row">
+          <span>Mauricio Sabogal, CEO, Founder, SAB Marketing Connections</span>
+          <p class="testimonial-text">"Ramon Portilla stands out as a visionary leader whose impact transcends our organization to leave a lasting mark on the industry. His commitment to excellence and innovative insights into customer and market dynamics has inspired teams to achieve remarkable goals. I am honored to endorse him as a professional par excellence, confident in his ability to elevate HumanX Insights to unprecedented success. His exceptional leadership and expertise in translating market strategies across diverse regions, especially in leveraging AI for strategic planning, resonate deeply with SAB Marketing Connections' mission."</p>
+          <a href="https://www.linkedin.com/in/mauriciosabog/in/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-container" data-index="6">
+      <div class="testimonial-content">
+        <img src="images/laston_charriez.jpg" alt="Laston Charriez, Colorado State University, Assistant Professor of Practice and Industry Liaison">
+        <div class="row">
+          <span>Laston Charriez, Colorado State University, Assistant Professor of Practice and Industry Liaison</span>
+          <p class="testimonial-text">"I have known Ramon for many years. He is an Insight Generating machine. Using his tentacles at Wal-Mart, he helped my team and I, justify new investments in Hispanic Shopper marketing.  His unique expertise to translate strategy of customer-focus strategies within the US Hispanic Retail segment allowed us to create win-win Shopper programs that had above benchmark ROI."</p>
+          <a href="https://www.linkedin.com/in/laston-charriez-10b4913/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-container" data-index="7">
+      <div class="testimonial-content">
+        <img src="images/cesar_enamorado.jpg" alt="Cesar Enamorado, VP Estrategia, DIUNSA, Honduras">
+        <div class="row">
+          <span>Cesar Enamorado, VP Estrategia, DIUNSA, Honduras</span>
+          <p class="testimonial-text">"Mi experiencia con HumanX Insights ha sido excepcional. Su enfoque apasionado por el cliente se refleja en cada interacción comercial. Tienen una capacidad única para influir en decisiones impulsadas por el cliente, ofreciendo soluciones personalizadas que superan expectativas. ¡Recomiendo sus servicios a cualquiera que busque resultados tangibles y una atención centrada en el cliente!."</p>
+          <a href="https://www.linkedin.com/in/cesarenamorado/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="prev-btn" aria-label="Previous testimonial">&#10095;</button>
+  <button class="next-btn" aria-label="Next testimonial">&#10095;</button>
+
+  <script>
+    const slider = document.querySelector(".testimonial-slider");
+    const numTestimonials = slider.querySelectorAll(".testimonial-container").length;
+    const prevBtn = document.querySelector(".prev-btn");
+    const nextBtn = document.querySelector(".next-btn");
+    
+    function changeTestimonial(slider, newIndex) {
+      const currentTestimonial = slider.querySelector(`[data-index="${slider.dataset.currentIndex}"]`);
+      const newTestimonial = slider.querySelector(`[data-index="${newIndex}"]`);
+    
+      if (!newTestimonial) {
+        return;
+      }
+    
+      currentTestimonial.classList.remove("active");
+      newTestimonial.classList.add("active");
+    
+      slider.dataset.currentIndex = newIndex;
+    }
+    
+    prevBtn.addEventListener("click", () => {
+      const currentIndex = parseInt(slider.dataset.currentIndex, 10);
+      const newIndex = (currentIndex - 1 + numTestimonials) % numTestimonials;
+      changeTestimonial(slider, newIndex, true);
+    });
+    
+    nextBtn.addEventListener("click", () => {
+      const currentIndex = parseInt(slider.dataset.currentIndex, 10);
+      const newIndex = (currentIndex + 1) % numTestimonials;
+      changeTestimonial(slider, newIndex, true);
+    });
+    
+    setInterval(() => {
+      const currentIndex = parseInt(slider.dataset.currentIndex, 10);
+      const newIndex = (currentIndex + 1) % numTestimonials;
+      changeTestimonial(slider, newIndex);
+    }, 10000);
+  </script>
+</body>
+</html> 
